@@ -1,0 +1,45 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+void main() {
+    setlocale(0, "");
+    // запис в файл
+    ofstream outFile("example.txt");
+    if (!outFile) {
+        cout << "помилка!\n";
+        return;
+    }
+
+    // записуємо 10 рядків
+
+    outFile << "Odesa" << "\n";    
+    outFile << "Kharkiv" << "\n";  
+    outFile << "Kyiv" << "\n";     
+    outFile << "Berlin" << "\n";   
+    outFile << "Paris" << "\n";    
+    outFile << "Warsaw" << "\n";  
+    outFile << "Vienna" << "\n";   
+    outFile << "Rome" << "\n";     
+    outFile << "Athens" << "\n";   
+    outFile << "Madrid" << "\n";   
+
+    
+
+    outFile.close();
+
+    // читання з файлу
+    ifstream inFile("example.txt");
+    if (!inFile) {
+        cout << "помилка!\n";
+        return;
+    }
+
+    // читаємо файл порядково
+    string line;
+    while (getline(inFile, line)) {
+        cout << line << "\n";
+    }
+    inFile.close();
+}
